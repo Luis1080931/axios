@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
+export const Login = () => {
+
+
 const baseURL = "http://localhost:3000/validacion"
+
+/*  */
 
 function handleSubmit() {
 
@@ -19,7 +24,7 @@ function handleSubmit() {
     
 }
 
-const Login = () => {
+
   return (
     <div>
       <form action="" method='post'>
