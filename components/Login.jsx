@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
+import { useNavigate} from 'react-router-dom'
 
 export const Login = () => {
 
@@ -8,29 +9,45 @@ const baseURL = "http://localhost:3000/validacion"
 
 /*  */
 
-const handleSubmit = () => {
+const correo_electronico = useRef(null)
+const password = useRef(null)
+const navigate = useNavigate()
 
-    const [post, setPost] = useState(null)
-    useEffect(() => {
-        axios.post(baseURL, {
-            Headers: {
-                token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb3dzIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MDkzMTYzOCwibm9tYnJlIjoiQXJpc3RvYnVsbyBDYWNoaW1ibyIsInRlbGVmb25vIjoiMTIzMjE0IiwidGlwb191c3VhcmlvIjoiY2F0YWRvciIsImVzdGFkbyI6ImFjdGl2byJ9XSwiaWF0IjoxNzA5OTMxMjU1LCJleHAiOjE3MTAwMTc2NTV9.s6q79P4ZU871WagcTwefKOMjcyX84m2UeRgLnXRfw14"
-            }
-        }).then((response) => {
-            setPost(response.data)
-        })
-    }, [])
+const handleSubmit = (e) => {
 
+e.preventDefault()
+
+try {
+  const data = {
+    correo_electronico: correo_electronico.current.value,
+    password: password.current.value
+  }
+  
+  axios.post(baseURL, data).then((response) => {
+    console.log(response)
+    if(response.status == 403){
+      alert('Credenciales erroneas')
+    }else{
+      const {token} = response.data
+      localStorage.setItem('token', token)
+      navigate('/register')
+      alert('Logueado')
+    }
+  })
+} catch (error) {
+  console.log(error)
+  alert('Error del servidor' + error)
+}
     
 }
 
 
   return (
     <div>
-      <form action="" method='post'>
-        <input name='correo_electronico' type="text" placeholder='Correo' />
-        <input name='password' type="text" placeholder='contraseña' />
-        <button onClick={handleSubmit} >Login</button>
+      <form method='post' onSubmit={handleSubmit}>
+        <input name='correo_electronico' type="text" placeholder='Correo' ref={correo_electronico} />
+        <input name='password' type="text" placeholder='contraseña' ref={password}/>
+        <button type='submit'>Login</button>
       </form>
     </div>
   )

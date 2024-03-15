@@ -11,7 +11,7 @@ export default function Listar() {
     
     axios.get(baseURL, {
       headers: {
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb3dzIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MDkzNCwibm9tYnJlIjoiQXJpc3RvYnVsbyIsInRlbGVmb25vIjoiMzExOTU0Nzg4MyIsInRpcG9fdXN1YXJpbyI6ImNhdGFkb3IiLCJlc3RhZG8iOiJhY3Rpdm8ifV0sImlhdCI6MTcxMDQ3NTI3OCwiZXhwIjoxNzEwNTYxNjc4fQ.RiQe_Dr3zjKo7Ff3qNoKtbAYrhtex86NGD9izhALJm0"
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb3dzIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MDkzNCwibm9tYnJlIjoiQXJpc3RvYnVsbyIsInRlbGVmb25vIjoiMzExOTU0Nzg4MyIsInRpcG9fdXN1YXJpbyI6ImNhdGFkb3IiLCJlc3RhZG8iOiJhY3Rpdm8ifV0sImlhdCI6MTcxMDUwNzQ1NCwiZXhwIjoxNzEwNTkzODU0fQ.D9ec1scLH9aW2lyCM0tULqSYGmQTsv7cZgJOR6WiA00"
       }
     }).then((response) => {
       console.log(response)
@@ -23,8 +23,7 @@ export default function Listar() {
 
   return(
     <div>
-      <p>Nombre: {post.usuarios[0].nombre}</p>
-      
+      <p>Nombre: {post.usuarios[0].nombre}</p>      
     </div>
   )
 }

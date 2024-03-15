@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const Register = () => {
 
-  const baseURL = "http://localhost:3000/usuarios/registrar"
+  const baseURL = "http://localhost:3000/usuarios/actualizar/1080934638"
 
   const identificacion = useRef(null)
   const nombre = useRef(null)
@@ -28,7 +28,7 @@ const Register = () => {
 
       await axios.post(baseURL, data).then((response) => {
         console.log(response)
-        if(response.status == 201) {
+        if(response.status == 200) {
 
           alert('User creado')
         }else{
@@ -42,25 +42,7 @@ const Register = () => {
   
   }
 
-  const handleDesactivar = (e) => {
-
-    e.preventDefault()
-
-    try {
-      axios.put('http://localhost:3000/usuarios/desactivar/1080934638').then((response) => {
-      console.log(response)
-      if(response.status == 201){
-        alert('User desactivado')
-      }else{
-        alert('User no desactivado')
-      }
-    })
-    } catch (error) {
-      console.log(error)
-      alert('Error del servidor'+ error)
-    }
-    
-  }
+  
   
   return (
     <div>
@@ -79,11 +61,6 @@ const Register = () => {
 
       </form>
 
-      <form method='' onSubmit={handleDesactivar}>
-        <button type='submit'> Desactivar </button>
-      </form>
-
-      
     </div>
   )
 }
