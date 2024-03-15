@@ -28,7 +28,7 @@ const Register = () => {
         password: password.current.value
       }
 
-      await axios.post(baseURL,token, data).then((response) => {
+      await axios.post(baseURL, data).then((response) => {
         console.log(response)
         if(response.status == 201) {
 

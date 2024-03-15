@@ -5,13 +5,15 @@ export default function Listar() {
 
   const baseURL= 'http://localhost:3000/usuarios/listar'
 
+  const token = localStorage.getItem('token')
+
   const [post, setPost] = useState(null)
 
   useEffect(() => {
     
     axios.get(baseURL, {
       headers: {
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb3dzIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MDkzNCwibm9tYnJlIjoiQXJpc3RvYnVsbyIsInRlbGVmb25vIjoiMzExOTU0Nzg4MyIsInRpcG9fdXN1YXJpbyI6ImNhdGFkb3IiLCJlc3RhZG8iOiJhY3Rpdm8ifV0sImlhdCI6MTcxMDUwNzQ1NCwiZXhwIjoxNzEwNTkzODU0fQ.D9ec1scLH9aW2lyCM0tULqSYGmQTsv7cZgJOR6WiA00"
+        token: token
       }
     }).then((response) => {
       console.log(response)
