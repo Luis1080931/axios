@@ -3,6 +3,8 @@ import axios from 'axios'
 
 const Register = () => {
 
+  const token = localStorage.getItem('token')
+
   const baseURL = "http://localhost:3000/usuarios/registrar"
 
   const identificacion = useRef(null)
@@ -26,7 +28,7 @@ const Register = () => {
         password: password.current.value
       }
 
-      await axios.post(baseURL, data).then((response) => {
+      await axios.post(baseURL,token, data).then((response) => {
         console.log(response)
         if(response.status == 201) {
 
