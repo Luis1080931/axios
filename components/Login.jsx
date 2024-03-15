@@ -8,7 +8,7 @@ const baseURL = "http://localhost:3000/validacion"
 
 /*  */
 
-function handleSubmit() {
+const handleSubmit = () => {
 
     const [post, setPost] = useState(null)
     useEffect(() => {
@@ -30,7 +30,7 @@ function handleSubmit() {
       <form action="" method='post'>
         <input name='correo_electronico' type="text" placeholder='Correo' />
         <input name='password' type="text" placeholder='contraseña' />
-        <button onClick={handleSubmit()} >Login</button>
+        <button onClick={handleSubmit} >Login</button>
       </form>
     </div>
   )

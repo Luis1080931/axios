@@ -8,9 +8,10 @@ export default function Listar() {
   const [post, setPost] = useState(null)
 
   useEffect(() => {
+    
     axios.get(baseURL, {
       headers: {
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb3dzIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MDkzMTYzOCwibm9tYnJlIjoiQXJpc3RvYnVsbyBDYWNoaW1ibyIsInRlbGVmb25vIjoiMTIzMjE0IiwidGlwb191c3VhcmlvIjoiY2F0YWRvciIsImVzdGFkbyI6ImFjdGl2byJ9XSwiaWF0IjoxNzA5OTMxMjU1LCJleHAiOjE3MTAwMTc2NTV9.s6q79P4ZU871WagcTwefKOMjcyX84m2UeRgLnXRfw14"
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb3dzIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MDkzNCwibm9tYnJlIjoiQXJpc3RvYnVsbyIsInRlbGVmb25vIjoiMzExOTU0Nzg4MyIsInRpcG9fdXN1YXJpbyI6ImNhdGFkb3IiLCJlc3RhZG8iOiJhY3Rpdm8ifV0sImlhdCI6MTcxMDQ3NTI3OCwiZXhwIjoxNzEwNTYxNjc4fQ.RiQe_Dr3zjKo7Ff3qNoKtbAYrhtex86NGD9izhALJm0"
       }
     }).then((response) => {
       console.log(response)
